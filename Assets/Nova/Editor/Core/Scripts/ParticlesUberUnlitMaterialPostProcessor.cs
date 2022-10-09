@@ -27,7 +27,9 @@ namespace Nova.Editor.Core.Scripts
 
         private static readonly int BaseMapRotationCoordId =
             Shader.PropertyToID(MaterialPropertyNames.BaseMapRotationCoord);
-
+        private static readonly int BaseUVSpeedEnableId = 
+            Shader.PropertyToID(MaterialPropertyNames.BaseUVSpeedEnable);
+        
         private static readonly int TintAreaModeId = Shader.PropertyToID(MaterialPropertyNames.TintAreaMode);
         private static readonly int TintMapModeId = Shader.PropertyToID(MaterialPropertyNames.TintColorMode);
         private static readonly int FlowMapId = Shader.PropertyToID(MaterialPropertyNames.FlowMap);
@@ -156,7 +158,10 @@ namespace Nova.Editor.Core.Scripts
                                          || (CustomCoord)material.GetFloat(BaseMapRotationCoordId) !=
                                          CustomCoord.Unused;
             MaterialEditorUtility.SetKeyword(material, ShaderKeywords.BaseMapRotationEnabled, baseMapRotationEnabled);
-
+            
+            var baseUVSpeedEnabled = material.GetFloat(BaseUVSpeedEnableId) > 0.5f;
+            MaterialEditorUtility.SetKeyword(material, ShaderKeywords.BaseMapOffsetAuto, baseUVSpeedEnabled);
+            
             var tintAreaMode = (TintAreaMode)material.GetFloat(TintAreaModeId);
             foreach (TintAreaMode value in Enum.GetValues(typeof(TintAreaMode)))
             {

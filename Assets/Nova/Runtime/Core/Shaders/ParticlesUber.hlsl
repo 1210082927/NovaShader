@@ -43,6 +43,8 @@ DECLARE_CUSTOM_COORD(_BaseMapOffsetYCoord);
 float _BaseMapRotation;
 DECLARE_CUSTOM_COORD(_BaseMapRotationCoord);
 float4 _BaseMapRotationOffsets;
+float _BaseXSpeed;
+float _BaseYSpeed;
 
 half4 _TintColor;
 float4 _TintMap_ST;

@@ -58,6 +58,10 @@ namespace Nova.Editor.Core.Scripts
         public const string BaseMapRotationCoord = "_BaseMapRotationCoord";
         public const string BaseMapRotationOffsets = "_BaseMapRotationOffsets";
         public const string BaseMapMirrorSampling = "_BaseMapMirrorSampling";
+        // Base Color Extend
+        public const string BaseUVSpeedEnable = "_BaseUVSpeedEnable";
+        public const string BaseXSpeed = "_BaseXSpeed";
+        public const string BaseYSpeed = "_BaseYSpeed";
 
         // Tint Color
         public const string TintAreaMode = "_TintAreaMode";

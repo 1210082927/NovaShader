@@ -91,6 +91,10 @@ Varyings vertUnlit(Attributes input, out float3 positionWS, uniform bool useEmis
     baseMapUv = TRANSFORM_BASE_MAP(baseMapUv);
     baseMapUv.x += GET_CUSTOM_COORD(_BaseMapOffsetXCoord);
     baseMapUv.y += GET_CUSTOM_COORD(_BaseMapOffsetYCoord);
+    #if _BASE_MAP_OFFSET_AUTO
+    baseMapUv.x += _Time.y * _BaseXSpeed;
+    baseMapUv.y += _Time.y * _BaseYSpeed;    
+    #endif
     output.baseMapUVAndProgresses.xy = baseMapUv;
 
     // Base Map Progress

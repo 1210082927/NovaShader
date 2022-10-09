@@ -26,7 +26,9 @@ namespace Nova.Editor.Core.Scripts
         public const string BaseSamplerStatePointMirror = "_BASE_SAMPLER_STATE_POINT_MIRROR";
         public const string BaseSamplerStateLinearMirror = "_BASE_SAMPLER_STATE_LINEAR_MIRROR";
         public const string BaseSamplerStateTrilinearMirror = "_BASE_SAMPLER_STATE_TRILINEAR_MIRROR";
-
+        //Base Color Extend 自动UV偏移
+        public const string BaseMapOffsetAuto = "_BASE_MAP_OFFSET_AUTO";
+        
         // Surface maps
         public const string NormalMapEnabled = "_NORMAL_MAP_ENABLED";
         public const string MetallicMapEnabled = "_METALLIC_MAP_ENABLED";

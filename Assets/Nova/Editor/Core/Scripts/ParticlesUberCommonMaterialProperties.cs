@@ -62,7 +62,10 @@ namespace Nova.Editor.Core.Scripts
             BaseMapRotationCoordProp.Setup(properties);
             BaseMapRotationOffsetsProp.Setup(properties);
             BaseMapMirrorSamplingProp.Setup(properties);
-
+            BaseUVSpeedEnable.Setup(properties);
+            BaseXSpeed.Setup(properties);
+            BaseYSpeed.Setup(properties);
+            
             // Tint Color
             TintAreaModeProp.Setup(properties);
             TintColorModeProp.Setup(properties);
@@ -220,6 +223,16 @@ namespace Nova.Editor.Core.Scripts
 
         public ParticlesGUI.Property BaseMapMirrorSamplingProp { get; } =
             new ParticlesGUI.Property(PropertyNames.BaseMapMirrorSampling);
+
+        //Base Map Extend
+        public ParticlesGUI.Property BaseUVSpeedEnable { get; } =
+            new ParticlesGUI.Property(PropertyNames.BaseUVSpeedEnable);
+
+        public ParticlesGUI.Property BaseXSpeed { get; } =
+            new ParticlesGUI.Property(PropertyNames.BaseXSpeed);
+
+        public ParticlesGUI.Property BaseYSpeed { get; } =
+            new ParticlesGUI.Property(PropertyNames.BaseYSpeed);
 
         #endregion
 

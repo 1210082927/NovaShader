@@ -379,6 +379,14 @@ namespace Nova.Editor.Core.Scripts
             if (baseMapMode == BaseMapMode.FlipBook || baseMapMode == BaseMapMode.FlipBookBlending)
                 MaterialEditorUtility.DrawPropertyAndCustomCoord(_editor, "Flip-Book Progress",
                     props.BaseMapProgressProp.Value, props.BaseMapProgressCoordProp.Value);
+            
+            MaterialEditorUtility.DrawToggleProperty(_editor, "BaseUVSpeedEnable", props.BaseUVSpeedEnable.Value);
+            if ( props.BaseUVSpeedEnable.Value.floatValue > 0.5f)
+                using (new EditorGUI.IndentLevelScope())
+                {
+                    _editor.ShaderProperty(props.BaseXSpeed.Value, "BaseXSpeed");
+                    _editor.ShaderProperty(props.BaseYSpeed.Value, "BaseYSpeed");
+                }
         }
 
         private void InternalDrawTintColorProperties()

@@ -27,7 +27,10 @@ Shader "Nova/Particles/UberUnlit"
         _BaseMapRotationCoord("Base Map Rotation Coord", Float) = 0.0
         _BaseMapRotationOffsets("Base Map Rotation Offsets", Vector) = (0.0, 0.0, 0.0, 0.0)
         _BaseMapMirrorSampling("Base Map Mirror Sampling", Float) = 0.0
-
+        _BaseUVSpeedEnable("Base UV Speed Enable", Float) = 0.0
+        _BaseXSpeed("Base X Speed", Float) = 0.0
+        _BaseYSpeed("Base Y Speed", Float) = 0.0
+        
         // Tint Color
         _TintAreaMode("Tint Area Mode", Float) = 0.0
         _TintColorMode("Tint Color Mode", Float) = 0.0
@@ -159,7 +162,8 @@ Shader "Nova/Particles/UberUnlit"
             #pragma shader_feature_local _BASE_MAP_MODE_2D _BASE_MAP_MODE_2D_ARRAY _BASE_MAP_MODE_3D
             #pragma shader_feature_local_vertex _BASE_MAP_ROTATION_ENABLED
             #pragma shader_feature_local_fragment _ _BASE_SAMPLER_STATE_POINT_MIRROR _BASE_SAMPLER_STATE_LINEAR_MIRROR _BASE_SAMPLER_STATE_TRILINEAR_MIRROR
-
+            #pragma shader_feature_local _BASE_MAP_OFFSET_AUTO
+            
             // Tint Color
             #pragma shader_feature_local _ _TINT_AREA_ALL _TINT_AREA_RIM
             #pragma shader_feature_local _ _TINT_COLOR_ENABLED _TINT_MAP_ENABLED _TINT_MAP_3D_ENABLED
