@@ -12,7 +12,9 @@ Shader "Nova/Particles/UberUnlit"
         _BlendSrc("Blend Src", Float) = 1.0
         _BlendDst("Blend Dst", Float) = 0.0
         _ZWrite("ZWrite", Float) = 1.0
-
+        //扩展ZTest
+        _ZTest("ZTest", float) = 4.0
+        
         // Base Map
         _BaseMapMode("Base Map Mode", Float) = 0.0
         [MainTexture] _BaseMap("Base Map", 2D) = "white" {}
@@ -140,7 +142,7 @@ Shader "Nova/Particles/UberUnlit"
             Cull[_Cull]
             ColorMask RGB
             Lighting Off
-            ZTest LEqual
+            ZTest [_ZTest]
 
             HLSLPROGRAM
             #pragma vertex vert
@@ -340,7 +342,7 @@ Shader "Nova/Particles/UberUnlit"
             Cull[_Cull]
             ColorMask RGB
             Lighting Off
-            ZTest LEqual
+            ZTest [_ZTest]
 
             HLSLPROGRAM
             #pragma vertex vert
@@ -409,7 +411,7 @@ Shader "Nova/Particles/UberUnlit"
             Cull[_Cull]
             ColorMask RGB
             Lighting Off
-            ZTest LEqual
+            ZTest [_ZTest]
 
             HLSLPROGRAM
             #pragma vertex vert

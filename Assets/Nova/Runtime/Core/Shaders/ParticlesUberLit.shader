@@ -12,6 +12,8 @@ Shader "Nova/Particles/UberLit"
         _BlendSrc("Blend Src", Float) = 1.0
         _BlendDst("Blend Dst", Float) = 0.0
         _ZWrite("ZWrite", Float) = 1.0
+        //扩展ZTest
+        _ZTest("ZTest", Float) = 4.0
         _LitWorkflowMode("Lit Workflow Mode",Float) = 0.0
         _LitReceiveShadows("Lit Receive Shadows", Float) = 0.0
         _SpecularHighlights("Specular Highlights", Float) = 0.0
@@ -165,7 +167,7 @@ Shader "Nova/Particles/UberLit"
             Cull[_Cull]
             ColorMask RGB
             Lighting Off
-            ZTest LEqual
+            ZTest [_ZTest]
 
             HLSLPROGRAM
             #pragma vertex vertLit
@@ -389,7 +391,7 @@ Shader "Nova/Particles/UberLit"
             Cull[_Cull]
             ColorMask RGB
             Lighting Off
-            ZTest LEqual
+            ZTest [_ZTest]
 
             HLSLPROGRAM
             #pragma vertex vert
@@ -460,7 +462,7 @@ Shader "Nova/Particles/UberLit"
             Cull[_Cull]
             ColorMask RGB
             Lighting Off
-            ZTest LEqual
+            ZTest [_ZTest]
 
             HLSLPROGRAM
             #pragma vertex vert

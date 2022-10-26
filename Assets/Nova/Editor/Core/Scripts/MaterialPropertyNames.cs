@@ -16,6 +16,8 @@ namespace Nova.Editor.Core.Scripts
         public const string BlendSrc = "_BlendSrc";
         public const string BlendDst = "_BlendDst";
         public const string ZWrite = "_ZWrite";
+        //扩展ZTest脚本
+        public const string ZTest = "_ZTest";
         public const string LitWorkflowMode = "_LitWorkflowMode";
         public const string LitReceiveShadows = "_LitReceiveShadows";
         public const string SpecularHighlights = "_SpecularHighlights";

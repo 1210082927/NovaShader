@@ -46,7 +46,8 @@ namespace Nova.Editor.Core.Scripts
             BlendSrcProp.Setup(properties);
             BlendDstProp.Setup(properties);
             ZWriteProp.Setup(properties);
-
+            ZTestProp.Setup(properties);
+            
             // Base Color
             BaseMapModeProp.Setup(properties);
             BaseMapProp.Setup(properties);
@@ -168,6 +169,7 @@ namespace Nova.Editor.Core.Scripts
         #region Render Settings Material Properties
 
         public ParticlesGUI.Property RenderTypeProp { get; } = new ParticlesGUI.Property(PropertyNames.RenderType);
+        
         public ParticlesGUI.Property CutoffProp { get; } = new ParticlesGUI.Property(PropertyNames.Cutoff);
 
         public ParticlesGUI.Property TransparentBlendModeProp { get; } =
@@ -182,6 +184,9 @@ namespace Nova.Editor.Core.Scripts
         public ParticlesGUI.Property BlendDstProp { get; } = new ParticlesGUI.Property(PropertyNames.BlendDst);
         public ParticlesGUI.Property BlendSrcProp { get; } = new ParticlesGUI.Property(PropertyNames.BlendSrc);
         public ParticlesGUI.Property ZWriteProp { get; } = new ParticlesGUI.Property(PropertyNames.ZWrite);
+
+        //扩展ZTest
+        public ParticlesGUI.Property ZTestProp { get; } =  new ParticlesGUI.Property(PropertyNames.ZTest);
 
         #endregion
 

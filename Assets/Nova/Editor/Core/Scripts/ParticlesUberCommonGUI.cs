@@ -321,6 +321,7 @@ namespace Nova.Editor.Core.Scripts
                 RenderPriorityMin, RenderPriorityMax);
             MaterialEditorUtility.DrawEnumProperty<VertexAlphaMode>(_editor, "Vertex Alpha Mode",
                 props.VertexAlphaModeProp.Value);
+            MaterialEditorUtility.DrawEnumProperty<ZTestType>(_editor, "ZTest", props.ZTestProp.Value);
         }
 
         private void InternalDrawBaseMapProperties()
