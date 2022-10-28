@@ -21,6 +21,7 @@ namespace Nova.Editor.Core.Scripts
             var transparencyFoldoutKey = $"{prefsKeyPrefix}{nameof(TransparencyFoldout)}";
             var alphaTransitionFoldoutKey = $"{prefsKeyPrefix}{nameof(AlphaTransitionFoldout)}";
             var emissionFoldoutKey = $"{prefsKeyPrefix}{nameof(EmissionFoldout)}";
+            var shadowModeFoldoutKey = $"{prefsKeyPrefix}{nameof(ShadowModeFoldout)}";
 
             RenderSettingsFoldout = new BoolEditorPrefsProperty(renderSettingsFoldoutKey, true);
             BaseMapFoldout = new BoolEditorPrefsProperty(baseMapFoldoutKey, true);
@@ -30,7 +31,8 @@ namespace Nova.Editor.Core.Scripts
             TransparencyFoldout = new BoolEditorPrefsProperty(transparencyFoldoutKey, true);
             AlphaTransitionFoldout = new BoolEditorPrefsProperty(alphaTransitionFoldoutKey, true);
             EmissionFoldout = new BoolEditorPrefsProperty(emissionFoldoutKey, true);
-
+            ShadowModeFoldout = new BoolEditorPrefsProperty(shadowModeFoldoutKey, true);
+            
             Setup(properties);
         }
 
@@ -151,6 +153,9 @@ namespace Nova.Editor.Core.Scripts
             DepthFadeNearProp.Setup(properties);
             DepthFadeFarProp.Setup(properties);
             DepthFadeWidthProp.Setup(properties);
+            
+            //Shadow属性设置
+            ShadowModeProp.Setup(properties);
         }
 
         #region Foldout Properties
@@ -163,6 +168,8 @@ namespace Nova.Editor.Core.Scripts
         public BoolEditorPrefsProperty EmissionFoldout { get; private set; }
         public BoolEditorPrefsProperty RenderSettingsFoldout { get; private set; }
         public BoolEditorPrefsProperty TransparencyFoldout { get; private set; }
+
+        public BoolEditorPrefsProperty ShadowModeFoldout { get; private set; }
 
         #endregion
 
@@ -417,6 +424,10 @@ namespace Nova.Editor.Core.Scripts
 
         public ParticlesGUI.Property KeepEdgeTransparencyProp { get; } =
             new ParticlesGUI.Property(PropertyNames.KeepEdgeTransparency);
+
+        //Shadow
+        public ParticlesGUI.Property ShadowModeProp { get; } = 
+            new ParticlesGUI.Property(PropertyNames.ShadowMode);
 
         #endregion
 

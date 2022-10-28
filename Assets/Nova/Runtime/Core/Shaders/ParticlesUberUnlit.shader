@@ -118,6 +118,9 @@ Shader "Nova/Particles/UberUnlit"
         _DepthFadeNear("Depth Fade Near", Float) = 1.0
         _DepthFadeFar("Depth Fade Far", Float) = 10.0
         _DepthFadeWidth("Depth Fade Width", Float) = 1.0
+        
+        //假如对实时阴影的支持
+        _CastShadows("Cast Shadows", Float) = 0
     }
 
     SubShader
@@ -466,6 +469,28 @@ Shader "Nova/Particles/UberUnlit"
             #pragma shader_feature_local _DEPTH_FADE_ENABLED
 
             #include "ParticlesUberDepthOnly.hlsl"
+            ENDHLSL
+        }
+        
+        Pass
+        {
+            Name "ShadowCaster"
+            Tags{"LightMode" = "ShadowCaster"}
+
+            ZWrite On
+            ZTest LEqual
+            ColorMask 0
+            Cull[_Cull]
+
+            HLSLPROGRAM
+            #pragma target 2.0
+            
+            #pragma shader_feature_local_fragment _ALPHATEST_ON
+            
+            #pragma vertex ShadowPassVertex
+            #pragma fragment ShadowPassFragment
+            
+            #include "ParticlesUberShadow.hlsl"
             ENDHLSL
         }
     }

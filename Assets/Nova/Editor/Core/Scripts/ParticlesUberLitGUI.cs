@@ -87,6 +87,8 @@ namespace Nova.Editor.Core.Scripts
             _commonGUI.DrawAlphaTransitionProperties();
             // Emission
             _commonGUI.DrawEmissionProperties();
+            //Shadow
+            _commonGUI.DrawShadowModeProperties();
             // Transparency
             _commonGUI.DrawTransparencyProperties();
             // FixNow

@@ -240,12 +240,21 @@ namespace Nova.Editor.Core.Scripts
                 "Emission", InternalDrawEmissionProperties);
         }
 
+        /// <summary>
+        /// 增加阴影控制的选项
+        /// </summary>
+        public void DrawShadowModeProperties()
+        {
+            DrawProperties(_commonMaterialProperties.ShadowModeFoldout, "阴影",
+                InternalDrawShadowModeProperties);
+        }
+        
         public void DrawTransparencyProperties()
         {
             DrawProperties(_commonMaterialProperties.TransparencyFoldout,
                 "Transparency", InternalDrawTransparencyProperties);
         }
-
+        
         private static bool CompareVertexStreams(List<ParticleSystemVertexStream> a,
             List<ParticleSystemVertexStream> b)
         {
@@ -676,6 +685,27 @@ namespace Nova.Editor.Core.Scripts
                 }
         }
 
+        private void InternalDrawShadowModeProperties()
+        {
+            var props = _commonMaterialProperties;
+            MaterialEditorUtility.DrawEnumProperty<ShadowModeType>(_editor, "阴影模式", 
+                props.ShadowModeProp.Value);
+            var shadowModeType = (ShadowModeType)props.ShadowModeProp.Value.floatValue;
+            var material = _editor.target as Material;
+            switch (shadowModeType)
+            {
+                case ShadowModeType.None :
+                    material.SetShaderPassEnabled("ShadowCaster", false);
+                    break;
+                case ShadowModeType.Realtime:
+                    material.SetShaderPassEnabled("ShadowCaster", true);
+                    break;
+                case ShadowModeType.Bake:
+                    material.SetShaderPassEnabled("ShadowCaster", true);
+                    break;
+            }
+        }
+        
         #region private variable
 
         private const int RenderPriorityMax = 50;

@@ -16,7 +16,7 @@ namespace Nova.Editor.Core.Scripts
         private ParticlesUberCommonGUI _commonGUI;
 
         private ParticlesUberCommonMaterialProperties _commonMaterialProperties;
-
+        
         protected override void SetupProperties(MaterialProperty[] properties)
         {
             _commonMaterialProperties.Setup(properties);
@@ -38,6 +38,7 @@ namespace Nova.Editor.Core.Scripts
             _commonGUI.DrawColorCorrectionProperties();
             _commonGUI.DrawAlphaTransitionProperties();
             _commonGUI.DrawEmissionProperties();
+            _commonGUI.DrawShadowModeProperties();
             _commonGUI.DrawTransparencyProperties();
             _commonGUI.DrawFixNowButton();
         }

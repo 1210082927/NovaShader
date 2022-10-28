@@ -143,6 +143,9 @@ Shader "Nova/Particles/UberLit"
         _DepthFadeNear("Depth Fade Near", Float) = 1.0
         _DepthFadeFar("Depth Fade Far", Float) = 10.0
         _DepthFadeWidth("Depth Fade Width", Float) = 1.0
+        
+        //假如对实时阴影的支持
+        _CastShadows("Cast Shadows", Float) = 0
     }
 
     SubShader
@@ -451,6 +454,7 @@ Shader "Nova/Particles/UberLit"
             #include "ParticlesUberDepthNormals.hlsl"
             ENDHLSL
         }
+
         Pass
         {
             Tags
@@ -519,6 +523,28 @@ Shader "Nova/Particles/UberLit"
             // When LightMode is DepthOnly, the shaders are the same as in the Unlit version,
             // so there is no problem.
             #include "ParticlesUberDepthOnly.hlsl"
+            ENDHLSL
+        }
+        
+        Pass
+        {
+            Name "ShadowCaster"
+            Tags{"LightMode" = "ShadowCaster"}
+
+            ZWrite On
+            ZTest LEqual
+            ColorMask 0
+            Cull[_Cull]
+
+            HLSLPROGRAM
+            #pragma target 3.5
+            
+            #pragma shader_feature_local_fragment _ALPHATEST_ON
+            
+            #pragma vertex ShadowPassVertex
+            #pragma fragment ShadowPassFragment
+            
+            #include "ParticlesUberShadow.hlsl"
             ENDHLSL
         }
     }

@@ -154,5 +154,8 @@ namespace Nova.Editor.Core.Scripts
         // Distortion
         public const string DistortionIntensity = "_DistortionIntensity";
         public const string DistortionIntensityCoord = "_DistortionIntensityCoord";
+        
+        //Shadow
+        public const string ShadowMode = "_CastShadows";
     }
 }
